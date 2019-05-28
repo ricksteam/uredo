@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- '11'
+deploy:
+  provider: npm
+  email: bricks@unomaha.edu
+  api_key:
+    secure: "J7XNO0+G+qXSERcpxrFX0pbIrXl7hlfDqybjeOU8Zb7Jls5yL5Fb04sKvGqPDjp1pgoq3U4cQQJ8sNZRRcz15rauNJok79tPwRFzyfoEROZcg2MDX0x8/JT9aj929Xn3hsBwIw6nksVNLcQgGzEV8CAv1wpvfOgQ455VRtQzd/xPu1krYlFouXWVUb1ufGHQ8p5Pg2S33kR2eOe7TwHcf/UEtctY4fRl7LpR3Poc1xGmEXWu6mSjXxJPZOnpkdb3p9lZaHsIKUpOq0/lVxDQFcGPrIyJvMbgvlktkaj7cTKwNjyZckAL7J7TE70UIkZr2GmB2Ms33KDfAmdf1vjAzVa4AwGhG/udM+R1CPFOxRMmkXX/3HPJ5Ib/PuNO2tmX15A/+tz54aEhT8NacxFWu1GKOwnvre47zhaQUJk29NRq0P7icWtGHUWRaRW4p7gXbFNP5+8bvuiq20thVHpPYLLw/uZ95Zma9fm+LSAMfXGKIog5FpM0YT8ahtCBioEiwOEdlTZSEmi47ONPbVRgxn0BQe4er+nfTcKK7bp2QvC9KHHtUu5iPDlejg/A37Ptmki9wcPmN2fZYayOPZY9bigdMwDa7Et6lmdg5fLqpR9weowmiAbZNBsXwguyndY54r+j7IdHTVAtGJxeI1z0MrmeWL1rULad+Ype/ptoVIM="
+  on:
+    branch: master
+    repo: ricksteam/github-router-public
+notifications:
+  email:
+    recipients:
+    - bricks@unomaha.edu
+    on_success: change
+    on_failure: always

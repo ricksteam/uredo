@@ -1,0 +1,17 @@
+{
+  "name": "uredo",
+  "version": "1.0.0",
+  "description": "A command object-based undo redo library",
+  "main": "index.js",
+  "repository": "https://github.com/ricksteam/uredo.git",
+  "author": "B Ricks <bricks@unomaha.edu>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "yarn mocha"
+  },
+  "dependencies": {
+    "assert": "^2.0.0",
+    "mocha": "^6.1.4"
+  }
+}
