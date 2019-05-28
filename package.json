@@ -1,6 +1,6 @@
 {
   "name": "uredo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A command object-based undo redo library",
   "main": "index.js",
   "repository": "https://github.com/ricksteam/uredo.git",
