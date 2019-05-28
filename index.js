@@ -1,3 +1,4 @@
+"use strict"
 /**
  * Class that implements an undo/redo stack.
  * To use, pass an object to the do function that has at least two paramaterless functions, do() and undo().
@@ -16,6 +17,8 @@ export default class CommandExecutor {
    * @param {object} command An object with two parameterless functions, do() and undo()
    */
   do(command) {
+    if(typeof command.do != 'function' || typeof command.undo != 'function')
+      throw "Command objects must implement both a do() and undo() function."
     this.undidStack = [];
     this.didStack.push(command);
     command.do();

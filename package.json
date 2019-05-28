@@ -8,10 +8,12 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "test": "yarn mocha"
+    "test": "yarn mocha -r esm"
   },
   "dependencies": {
     "assert": "^2.0.0",
+    "chai": "^4.2.0",
+    "esm": "^3.2.25",
     "mocha": "^6.1.4"
   }
 }
