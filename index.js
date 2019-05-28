@@ -1,4 +1,4 @@
-class CommandExecutor {
+export default class CommandExecutor {
   constructor() {
     this.didStack = [];
     this.undidStack = [];
@@ -41,7 +41,3 @@ class CommandExecutor {
     return this.undidStack.length != 0;
   }
 }
-
-
-
-exports.default = CommandExecutor;
