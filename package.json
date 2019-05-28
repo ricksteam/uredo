@@ -6,7 +6,7 @@
   "repository": "https://github.com/ricksteam/uredo.git",
   "author": "B Ricks <bricks@unomaha.edu>",
   "license": "MIT",
-  "private": false,
+  "private": false, 
   "scripts": {
     "test": "yarn mocha"
   },
