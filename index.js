@@ -1,18 +1,3 @@
-class Command{
-  constructor(){
-    this.name = "<UNDEFINED COMMAND NAME>";
-    this.includeWithPrevious = false; //for multiple commands that should be counted as one.
-  }
-
-  do(){
-    throw "do() method must be overwritten in child class.";
-  }
-  undo(){
-    throw "undo() method must be overwritten in child class.";
-  }
- 
-}
-
 class CommandExecutor {
   constructor() {
     this.didStack = [];
@@ -59,6 +44,4 @@ class CommandExecutor {
 
 
 
-module.exports = {
-  Command, CommandExecutor
-};
+exports.default = CommandExecutor;
