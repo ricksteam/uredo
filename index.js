@@ -16,12 +16,12 @@ export default class CommandExecutor {
    * 
    * @param {object} command An object with two parameterless functions, do() and undo()
    */
-  do(command) {
+  do(command, self) {
     if(typeof command.do != 'function' || typeof command.undo != 'function')
       throw "Command objects must implement both a do() and undo() function."
     this.undidStack = [];
     this.didStack.push(command);
-    command.do();
+    command.do(self);
   }
 
   /**
@@ -31,12 +31,12 @@ export default class CommandExecutor {
    * until the undo stack is empty or a command is found without the includeWithPrevious or a command
    * with that flag set to false.
    */
-  undo() {
+  undo(self) {
     let toUndo = {};
     do {
       if (this.didStack.length == 0) return;
       toUndo = this.didStack.splice(this.didStack.length - 1, 1)[0];
-      toUndo.undo();
+      toUndo.undo(self);
       this.undidStack.push(toUndo);
     } while (toUndo.includeWithPrevious == true);
   }
@@ -47,18 +47,18 @@ export default class CommandExecutor {
    * until the redo stack is empty or a command is found with the includeWithPrevious flag or a command 
    * with that flag set to false.
    */
-  redo() {
+  redo(self) {
     let toRedo = {};
 
     if (this.undidStack.length == 0) return;
     toRedo = this.undidStack.splice(this.undidStack.length - 1, 1)[0];
-    toRedo.do();
+    toRedo.do(self);
     this.didStack.push(toRedo);
 
     //Now check to see if the following ones can also be redone
     while (this.undidStack.length != 0 && this.undidStack[this.undidStack.length - 1].includeWithPrevious) {
       toRedo = this.undidStack.splice(this.undidStack.length - 1, 1)[0];
-      toRedo.do();
+      toRedo.do(self);
       this.didStack.push(toRedo);
     }
 
